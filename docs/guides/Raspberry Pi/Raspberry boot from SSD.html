@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Raspberry Pi boot from SSD &#8212; Home</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/colors.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/code.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/sidebar.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Raspberry VNC Setup" href="Raspbian%20with%20vnc.html" />
+    <link rel="prev" title="GitLab in Docker on Pi" href="GitLab%20in%20Docker%20on%20Pi.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Lukas GitHub</a></h1>
+
+
+
+
+
+
+
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script><h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../smarthome/index.html">Smarthome</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../templates/index.html">Templates</a></li>
+</ul>
+
+
+  <h3><a href="../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Raspberry Pi boot from SSD</a><ul>
+<li><a class="reference internal" href="#moglichkeit-1">Möglichkeit 1</a><ul>
+<li><a class="reference internal" href="#vorbereitung">Vorbereitung</a></li>
+<li><a class="reference internal" href="#updaten-ubers-betriebssystem">Updaten übers Betriebssystem</a></li>
+<li><a class="reference internal" href="#von-der-sd-karte-auf-die-ssd">Von der SD-Karte auf die SSD</a></li>
+<li><a class="reference internal" href="#das-geheimnis-der-leeren-sd-karte">Das Geheimnis der leeren SD-Karte</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#moglichkeit-2-ungetestet">Möglichkeit 2 (Ungetestet)</a><ul>
+<li><a class="reference internal" href="#backgrouninformationen">Backgrouninformationen</a></li>
+<li><a class="reference internal" href="#umsetzung">Umsetzung</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="raspberry-pi-boot-from-ssd">
+<h1>Raspberry Pi boot from SSD<a class="headerlink" href="#raspberry-pi-boot-from-ssd" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="moglichkeit-1">
+<h2>Möglichkeit 1<a class="headerlink" href="#moglichkeit-1" title="Permalink to this headline">¶</a></h2>
+<p>Guide von <a class="reference external" href="https://forum-raspberrypi.de/forum/thread/48950-tutorial-eine-unendliche-geschichte-raspberry-4b-und-usb-boot/">hier</a></p>
+<div class="section" id="vorbereitung">
+<h3>Vorbereitung<a class="headerlink" href="#vorbereitung" title="Permalink to this headline">¶</a></h3>
+<p>Zuerst benötigt man Buster auf eine SD-Karte.</p>
+<p>Ein Image davon auf die SD-Karte flashen und ohne SSD erstmal booten.
+Ein kleines bißchen einrichten (Sprache und Tastatur) und dann erstmal ein:
+sudo apt update &amp;&amp; sudo apt full-upgrade
+Warscheinlich ist dann erstmal ein reboot fällig.</p>
+</div>
+<div class="section" id="updaten-ubers-betriebssystem">
+<h3>Updaten übers Betriebssystem<a class="headerlink" href="#updaten-ubers-betriebssystem" title="Permalink to this headline">¶</a></h3>
+<p>Dann überprüft ihr ob der Bootloader aktuell ist:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo rpi-eeprom-update
+BCM2711 detected
+Dedicated VL805 EEPROM detected
+BOOTLOADER: up-to-date
+CURRENT: Do <span class="m">16</span>. Apr <span class="m">17</span>:11:26 UTC <span class="m">2020</span> <span class="o">(</span><span class="m">1587057086</span><span class="o">)</span>
+LATEST: Do <span class="m">16</span>. Apr <span class="m">17</span>:11:26 UTC <span class="m">2020</span> <span class="o">(</span><span class="m">1587057086</span><span class="o">)</span>
+FW DIR: /lib/firmware/raspberrypi/bootloader/critical
+VL805: up-to-date
+CURRENT: 000137ad
+LATEST: 000137ad
+</pre></div>
+</div>
+<p>Dieser ist es nicht, er sollte auf “<strong>stable</strong>” (hier “<strong>critical</strong>”) stehen, also müsst ihr ihn aktualisieren.</p>
+<p>Dazu muss der Eintrag in einer Datei geändert werden:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo nano /etc/default/rpi-eeprom-update
+</pre></div>
+</div>
+<p>Dort ändert ihr die Zeile von: <code class="docutils literal notranslate"><span class="pre">FIRMWARE_RELEASE_STATUS=&quot;critical&quot;</span></code> in <code class="docutils literal notranslate"><span class="pre">FIRMWARE_RELEASE_STATUS=&quot;stable&quot;</span></code></p>
+<p>Der Bootloader wird aktualisiert, wenn ihr folgenden Befehl ausführt:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo rpi-eeprom-update -d -f /lib/firmware/raspberrypi/bootloader/stable/pieeprom-2020-07-31.bin
+</pre></div>
+</div>
+<p>oder</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sudo rpi-eeprom-update -a
+</pre></div>
+</div>
+<p><em>Anmerkung</em>: Der Name des Bootloaders <code class="docutils literal notranslate"><span class="pre">pieeprom-2020-07-31.bin</span></code> könnte sich nach diversen Upgrades geändert haben.</p>
+<p>Jetzt wäre ein weiteres reboot angebracht und danach solltet ihr das Ergebnis überprüfen:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ sudo rpi-eeprom-update
+BCM2711 detected
+Dedicated VL805 EEPROM detected
+BOOTLOADER: up-to-date
+CURRENT: Fr <span class="m">31</span>. Jul <span class="m">13</span>:43:39 UTC <span class="m">2020</span> <span class="o">(</span><span class="m">1596203019</span><span class="o">)</span>
+LATEST: Fr <span class="m">31</span>. Jul <span class="m">13</span>:43:39 UTC <span class="m">2020</span> <span class="o">(</span><span class="m">1596203019</span><span class="o">)</span>
+FW DIR: /lib/firmware/raspberrypi/bootloader/stable
+VL805: up-to-date
+CURRENT: 000138a1
+LATEST: 000138a1
+</pre></div>
+</div>
+<p>Wie man sieht, ist jetzt der Bootloader “<strong>up-to-date</strong>” und steht auf “<strong>stable</strong>”.</p>
+<p>Jetzt kommt noch ein Check ob die Bootkonfiguration richtig ist:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>vcgencmd bootloader_config
+<span class="o">[</span>all<span class="o">]</span>
+<span class="nv">BOOT_UART</span><span class="o">=</span><span class="m">0</span>
+<span class="nv">WAKE_ON_GPIO</span><span class="o">=</span><span class="m">1</span>
+<span class="nv">POWER_OFF_ON_HALT</span><span class="o">=</span><span class="m">0</span>
+<span class="nv">DHCP_TIMEOUT</span><span class="o">=</span><span class="m">45000</span>
+<span class="nv">DHCP_REQ_TIMEOUT</span><span class="o">=</span><span class="m">4000</span>
+<span class="nv">TFTP_FILE_TIMEOUT</span><span class="o">=</span><span class="m">30000</span>
+<span class="nv">ENABLE_SELF_UPDATE</span><span class="o">=</span><span class="m">1</span>
+<span class="nv">DISABLE_HDMI</span><span class="o">=</span><span class="m">0</span>
+<span class="nv">BOOT_ORDER</span><span class="o">=</span>0xf41
+</pre></div>
+</div>
+<p>Die Boot-Order findet man <a class="reference external" href="https://www.raspberrypi.org/do%E2%80%A62711_bootloader_config.md">hier</a></p>
+<p>Ab jetzt ist der Raspberry für den USB-Boot vorbereitet.</p>
+<p>Nun kommt der nächste Schritt:
+Flasht dasselbe Image auf die SSD, entfernt die SD-Karte und versucht von SSD zu booten.
+Sollte das klappen, müßt ihr Buster neu einrichten.</p>
+<p><em>Wichtig</em>: Den Eintrag: <code class="docutils literal notranslate"><span class="pre">/etc/default/rpi-eeprom-update</span> <span class="pre">auf</span></code> “<strong>stable</strong>” auf der SSD überprüfen.</p>
+</div>
+<div class="section" id="von-der-sd-karte-auf-die-ssd">
+<h3>Von der SD-Karte auf die SSD<a class="headerlink" href="#von-der-sd-karte-auf-die-ssd" title="Permalink to this headline">¶</a></h3>
+<p>Man nehme einfach den SD Card Copier des Betriebssystems.</p>
+<ol class="simple">
+<li><p><em>Von Gerät kopieren</em>: Hier die SD-Karte auswählen</p></li>
+<li><p><em>Auf Gerät kopieren</em>: Hier die SSD auswählen</p></li>
+<li><p>New Partition UUID ankreuzen</p></li>
+</ol>
+<p>Und dann auf Start klicken.</p>
+<p>Das wars, das Programm kopiert die SD-Karte auf die SSD, passt nebenbei die <code class="docutils literal notranslate"><span class="pre">/boot/cmdline</span></code> und die <code class="docutils literal notranslate"><span class="pre">/etc/fstab</span></code>
+auf die neue PARTUUID an und resized die root-Partition.</p>
+<p>Das klappte sogar aus dem laufenden Betriebssystem (Buster64, light mit Mate-Desktop) heraus.
+Und bootete sofort von SSD. Ich würde sagen, DAU-Geeignet, einfacher geht es kaum.
+Eine weitere Beschreibung findet sich hier: <a class="reference external" href="https://forum-raspberrypi.de/forum/thread/48413-raspberry-pi4-4gb-ssd-boot/?postID=446208#post446208">RE: Raspberry Pi4 4GB SSD Boot</a></p>
+</div>
+<div class="section" id="das-geheimnis-der-leeren-sd-karte">
+<h3>Das Geheimnis der leeren SD-Karte<a class="headerlink" href="#das-geheimnis-der-leeren-sd-karte" title="Permalink to this headline">¶</a></h3>
+<p><img alt="Performance Graph" src="https://forum-raspberrypi.de/attachment/28007-raspi31-raspi-cpu-day-png/" /></p>
+<p>Einfach die kleinste MicroSD-Karte mit (Gparted) fat32 formatieren und in den Kartenslot stecken. Wirkt sogar beim RPi3B(+)</p>
+</div>
+</div>
+<div class="section" id="moglichkeit-2-ungetestet">
+<h2>Möglichkeit 2 (Ungetestet)<a class="headerlink" href="#moglichkeit-2-ungetestet" title="Permalink to this headline">¶</a></h2>
+<p>Guide von <a class="reference external" href="https://forum-raspberrypi.de/forum/thread/48950-tutorial-eine-unendliche-geschichte-raspberry-4b-und-usb-boot/?postID=446954#post446954">hier</a></p>
+<div class="section" id="backgrouninformationen">
+<h3>Backgrouninformationen<a class="headerlink" href="#backgrouninformationen" title="Permalink to this headline">¶</a></h3>
+<p>Ab Juni gab es ein Beta-USB-rpi-boot-eeprom-recovery und mittlerweile seit Ende Juli ein stable <a class="reference external" href="https://github.com/raspberrypi/rpi-eeprom/releases/tag/v2020.07.31-138a1">rpi-boot-eeprom-recovery für USB Boot</a>.</p>
+</div>
+<div class="section" id="umsetzung">
+<h3>Umsetzung<a class="headerlink" href="#umsetzung" title="Permalink to this headline">¶</a></h3>
+<p>Dieses wird auf eine Fat32 formatierte mSD entpackt, in den Raspi 4 damit und Spannungsversorgung einschalten.
+Blinkt die grüne LED dann gleichmäßig schnell hintereinander ist das recovery beendet und man kann ganz ohne Umweg über eine mSD Karte gleich auf die Festplatte/ SSD / USB oder was auch immer sein BS Flashen, anstecken und es bootet.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2021, Lukas Schüttler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/guides/Raspberry Pi/Raspberry boot from SSD.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

@@ -1,0 +1,10 @@
+Desk
+=======
+
+.. _led-stripe:
+
+LED stripe
+-----------
+
+Chair sensor
+------------

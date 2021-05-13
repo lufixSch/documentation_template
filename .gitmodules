@@ -1,0 +1,6 @@
+[submodule "source/guides"]
+	path = source/guides
+	url = git@github.com:lufixSch/guides.git
+[submodule "source/templates/latex_protocol"]
+	path = source/templates/latex_protocol
+	url = git@github.com:lufixSch/protokoll_vorlage.git

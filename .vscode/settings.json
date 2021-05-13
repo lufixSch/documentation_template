@@ -1,0 +1,13 @@
+{
+  "python.pythonPath": "/Users/lukas/opt/anaconda3/envs/web/bin/python",
+  "cSpell.words": [
+    "eqiva",
+    "flirc",
+    "mija",
+    "mosquitto",
+    "portainer",
+    "xiaomi"
+  ],
+  "restructuredtext.confPath": "${workspaceFolder}/source",
+  "cSpell.ignoreWords": ["mqttid"]
+}

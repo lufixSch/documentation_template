@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flash Sonoff Device &#8212; Home</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/colors.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/code.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/sidebar.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Templates" href="../../templates/index.html" />
+    <link rel="prev" title="Speicherort von Docker Images ändern" href="../Linux/Docker%20storage%20location.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Lukas GitHub</a></h1>
+
+
+
+
+
+
+
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script><h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../smarthome/index.html">Smarthome</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../templates/index.html">Templates</a></li>
+</ul>
+
+
+  <h3><a href="../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Flash Sonoff Device</a><ul>
+<li><a class="reference internal" href="#schaltung">Schaltung</a></li>
+<li><a class="reference internal" href="#flashen">Flashen</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="flash-sonoff-device">
+<h1>Flash Sonoff Device<a class="headerlink" href="#flash-sonoff-device" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="schaltung">
+<h2>Schaltung<a class="headerlink" href="#schaltung" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>3,3V -&gt; 3,3V</p></li>
+<li><p>GND -&gt; GND</p></li>
+<li><p>RX -&gt; TX</p></li>
+<li><p>TX -&gt; RX</p></li>
+</ul>
+<p>Widerstand von TX des Sonoff-Geräts zu 3,3V.</p>
+</div>
+<div class="section" id="flashen">
+<h2>Flashen<a class="headerlink" href="#flashen" title="Permalink to this headline">¶</a></h2>
+<p>Flashen mit <code class="docutils literal notranslate"><span class="pre">esptool.py</span></code> mit folgendem Befehl:</p>
+<div class="highlight-zsh notranslate"><div class="highlight"><pre><span></span>esptool.py --port &lt;port&gt; --baud <span class="m">115200</span> write_flash 0x0000 &lt;firmware&gt;.bin
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2021, Lukas Schüttler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/guides/Microcontroller/Flash Sonoff Device.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

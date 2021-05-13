@@ -1,0 +1,35 @@
+:root {
+  --background: hsl(0, 0%, 100%);
+  --background-shade: hsl(0, 0%, 67%);
+  --background-accent: hsl(162, 61%, 89%);
+  --background-accent-shade: hsl(162, 23%, 94%);
+
+  --border: hsl(204, 3%, 70%);
+
+  --text: hsl(0, 0%, 0%);
+  --text-shade: hsl(213, 8%, 26%);
+  --text-primary: hsl(162, 61%, 25%);
+  --text-primary-shade: hsl(44, 68%, 72%);
+  --code: var(--text);
+  --code-primary: hsl(195, 75%, 30%);
+  --code-secondary: hsl(344, 75%, 30%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: hsl(0, 0%, 10%);
+    --background-shade: hsl(0, 0%, 33%);
+    --background-accent: hsl(162, 61%, 11%);
+    --background-accent-shade: hsl(162, 23%, 6%);
+
+    --border: hsl(204, 3%, 30%);
+
+    --text: hsl(0, 0%, 100%);
+    --text-shade: hsl(0, 0%, 73%);
+    --text-primary: hsl(162, 61%, 35%);
+    --text-primary-shade: #7a6017;
+    --code: var(--text);
+    --code-primary: hsl(195, 75%, 40%);
+    --code-secondary: hsl(344, 75%, 30%);
+  }
+}

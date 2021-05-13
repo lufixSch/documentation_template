@@ -1,0 +1,28 @@
+div.highlight {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.highlight .p,
+.highlight .l,
+.highlight .no {
+  color: var(--text);
+}
+
+.highlight .nt,
+.highlight .nv,
+.highlight .nb {
+  color: var(--code_nt);
+}
+
+.highlight .s {
+  color: var(--code_s);
+}
+
+.highlight .se {
+  color: var(--code_se);
+}
+
+.highlight .c1 {
+  color: var(--link_hover);
+}

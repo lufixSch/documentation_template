@@ -1,0 +1,30 @@
+div.highlight {
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.highlight .p,
+.highlight .l,
+.highlight .no,
+.highlight .n,
+.highlight .nf {
+  color: var(--code);
+}
+
+.highlight .nt,
+.highlight .nv,
+.highlight .nb {
+  color: var(--code-primary);
+}
+
+.highlight .s {
+  color: var(--code-secondary);
+}
+
+.highlight .se {
+  color: var(--code-secondary);
+}
+
+.highlight .c1 {
+  color: var(--text-primary-shade);
+}

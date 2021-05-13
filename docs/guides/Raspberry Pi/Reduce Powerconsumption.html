@@ -1,0 +1,198 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Energieverbrauch eines Raspberry Pi’s reduzieren &#8212; Home</title>
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/colors.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/code.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/sidebar.css" />
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Speicherort von Docker Images ändern" href="../Linux/Docker%20storage%20location.html" />
+    <link rel="prev" title="Raspberry VNC Setup" href="Raspbian%20with%20vnc.html" />
+   
+  <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../../index.html">Lukas GitHub</a></h1>
+
+
+
+
+
+
+
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script><h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../smarthome/index.html">Smarthome</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../templates/index.html">Templates</a></li>
+</ul>
+
+
+  <h3><a href="../../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Energieverbrauch eines Raspberry Pi’s reduzieren</a><ul>
+<li><a class="reference internal" href="#allgemein">Allgemein</a></li>
+<li><a class="reference internal" href="#hdmi-deaktivieren">HDMI deaktivieren</a></li>
+<li><a class="reference internal" href="#usb-deaktivieren">USB deaktivieren</a></li>
+<li><a class="reference internal" href="#leds-deaktivieren">LEDs deaktivieren</a><ul>
+<li><a class="reference internal" href="#raspberry-pi-2">Raspberry Pi 2</a></li>
+<li><a class="reference internal" href="#raspberry-pi-3">Raspberry Pi 3</a></li>
+<li><a class="reference internal" href="#raspberry-pi-4">Raspberry Pi 4</a></li>
+<li><a class="reference internal" href="#raspberry-pi-zero-w">Raspberry Pi Zero W</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="energieverbrauch-eines-raspberry-pi-s-reduzieren">
+<h1>Energieverbrauch eines Raspberry Pi’s reduzieren<a class="headerlink" href="#energieverbrauch-eines-raspberry-pi-s-reduzieren" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="allgemein">
+<h2>Allgemein<a class="headerlink" href="#allgemein" title="Permalink to this headline">¶</a></h2>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Maßname</p></th>
+<th class="head"><p>Reduzierter Strom</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>HDMI deaktivieren</p></td>
+<td><p><span class="math notranslate nohighlight">\(25mA\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>USB deaktivieren</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-even"><td><p>LEDs deaktivieren</p></td>
+<td><p><span class="math notranslate nohighlight">\(5mA\)</span> pro LED</p></td>
+</tr>
+<tr class="row-odd"><td><p>Zubehör reduzieren</p></td>
+<td><p><span class="math notranslate nohighlight">\(&gt;50mA\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>Software reduzieren</p></td>
+<td><p><span class="math notranslate nohighlight">\(&gt;100mA\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="hdmi-deaktivieren">
+<h2>HDMI deaktivieren<a class="headerlink" href="#hdmi-deaktivieren" title="Permalink to this headline">¶</a></h2>
+<p>Läuft der Raspberry Pi im headless Betrieb kann der HDMI Ausgang mit folgendem Befehl deaktiviert werden:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>/usr/bin/tvservice -o
+</pre></div>
+</div>
+<p>Mit der option <code class="docutils literal notranslate"><span class="pre">-p</span></code> kann der Port auch wieder aktiviert werden.</p>
+<p>Um den HDMI Port beim starten des Raspberry Pi’s zu deaktivieren, muss der Befehl in die Datei <code class="docutils literal notranslate"><span class="pre">/etc/rc.local</span></code> geschrieben werden</p>
+</div>
+<div class="section" id="usb-deaktivieren">
+<h2>USB deaktivieren<a class="headerlink" href="#usb-deaktivieren" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="leds-deaktivieren">
+<h2>LEDs deaktivieren<a class="headerlink" href="#leds-deaktivieren" title="Permalink to this headline">¶</a></h2>
+<p>Um die verschiedenen LEDs am Raspberry Pi zu deaktivieren muss die Datei <code class="docutils literal notranslate"><span class="pre">/boot/config.txt</span></code> editiert werden. Die Befehle unterscheiden sich jedoch je nach Version.</p>
+<div class="section" id="raspberry-pi-2">
+<h3>Raspberry Pi 2<a class="headerlink" href="#raspberry-pi-2" title="Permalink to this headline">¶</a></h3>
+<p>Der Raspberry Pi 2 hat zwei LEDs: Die rote Power LED und die Grüne Act LED. Mit folgenden Befehlen können die LEDs deaktiviert werden:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Disable the ACT LED.</span>
+<span class="nv">dtparam</span><span class="o">=</span><span class="nv">act_led_trigger</span><span class="o">=</span>none
+<span class="nv">dtparam</span><span class="o">=</span><span class="nv">act_led_activelow</span><span class="o">=</span>off
+
+<span class="c1"># Disable the PWR LED.</span>
+<span class="nv">dtparam</span><span class="o">=</span><span class="nv">pwr_led_trigger</span><span class="o">=</span>none
+<span class="nv">dtparam</span><span class="o">=</span><span class="nv">pwr_led_activelow</span><span class="o">=</span>off
+</pre></div>
+</div>
+</div>
+<div class="section" id="raspberry-pi-3">
+<h3>Raspberry Pi 3<a class="headerlink" href="#raspberry-pi-3" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="raspberry-pi-4">
+<h3>Raspberry Pi 4<a class="headerlink" href="#raspberry-pi-4" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Disable </span>
+<span class="c1">#led1 =&gt; Power led red</span>
+<span class="c1">#led0 =&gt; Stauts led green</span>
+$ <span class="nb">echo</span> none <span class="p">|</span> sudo tee /sys/class/leds/led0/trigger
+$ <span class="nb">echo</span> gpio <span class="p">|</span> sudo tee /sys/class/leds/led1/trigger
+
+<span class="c1">#Enable</span>
+<span class="c1">#led1 =&gt; Power led red</span>
+<span class="c1">#led0 =&gt; Stauts led green</span>
+$ <span class="nb">echo</span> mmc0 <span class="p">|</span> sudo tee /sys/class/leds/led0/trigger
+$ <span class="nb">echo</span> input <span class="p">|</span> sudo tee /sys/class/leds/led1/trigger
+</pre></div>
+</div>
+</div>
+<div class="section" id="raspberry-pi-zero-w">
+<h3>Raspberry Pi Zero W<a class="headerlink" href="#raspberry-pi-zero-w" title="Permalink to this headline">¶</a></h3>
+<p>Der Raspberry Pi Zero besitzt nur eine LED, welche wie folgt deaktiviert werden kann:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># Disable the ACT LED on the Pi Zero.</span>
+<span class="nv">dtparam</span><span class="o">=</span><span class="nv">act_led_trigger</span><span class="o">=</span>none
+<span class="nv">dtparam</span><span class="o">=</span><span class="nv">act_led_activelow</span><span class="o">=</span>on
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2021, Lukas Schüttler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../../_sources/guides/Raspberry Pi/Reduce Powerconsumption.md.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

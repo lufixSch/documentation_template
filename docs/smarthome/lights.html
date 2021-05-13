@@ -1,0 +1,163 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lights &#8212; Home</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/colors.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/code.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/sidebar.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Heating" href="heating.html" />
+    <link rel="prev" title="Smarthome" href="index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Lukas GitHub</a></h1>
+
+
+
+
+
+
+
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script><h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Smarthome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../templates/index.html">Templates</a></li>
+</ul>
+
+
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Lights</a><ul>
+<li><a class="reference internal" href="#ikea-tadfri">IKEA TÅDFRI</a></li>
+<li><a class="reference internal" href="#diy-lights">DIY lights</a></li>
+<li><a class="reference internal" href="#light-alarm">Light alarm</a></li>
+</ul>
+</li>
+</ul>
+<h3>Projects</h3>
+
+<ul class="want-points">
+  
+  <li class="toctree-l2"><a href="lights.html">Lights</a></li>
+  
+  <li class="toctree-l2"><a href="desk.html">Desk</a></li>
+  
+  <li class="toctree-l2"><a href="heating.html">Heating</a></li>
+  
+  <li class="toctree-l2"><a href="audiosystem.html">Multi-Room Audiosystem</a></li>
+  
+</ul>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="lights">
+<h1>Lights<a class="headerlink" href="#lights" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="ikea-tadfri">
+<h2>IKEA TÅDFRI<a class="headerlink" href="#ikea-tadfri" title="Permalink to this headline">¶</a></h2>
+<p>Most of my smart lights are from IKEA because they are cheap and easy to set up. Those devices are all connected with the IKEA TRÅDFRI bridge and then added to Home Assistant with the IKEA TRÅDFRI integration.</p>
+</div>
+<div class="section" id="diy-lights">
+<h2>DIY lights<a class="headerlink" href="#diy-lights" title="Permalink to this headline">¶</a></h2>
+<p>At my desk I use a LED stripe wich I integrated in Home Assistant with <a class="reference external" href="https://esphome.io">ESPHome</a>. The full explanation can be found in the section <a class="reference internal" href="desk.html#led-stripe"><span class="std std-ref">LED stripe</span></a>.</p>
+</div>
+<div class="section" id="light-alarm">
+<h2>Light alarm<a class="headerlink" href="#light-alarm" title="Permalink to this headline">¶</a></h2>
+<p>In order to get the feeling of a sunrise when I have to wake up I created the following automation. About <span class="math notranslate nohighlight">\(15\)</span> minutes before my alarm clock gets of the light in my bedroom slowly aluminates until it’s at full brightness.
+I use a <code class="docutils literal notranslate"><span class="pre">input_datetime</span></code> so I’m able to easily change the wakeup time.</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">input_datetime</span><span class="p">:</span>
+  <span class="nt">wakeup_time_lukas</span><span class="p">:</span>
+    <span class="nt">name</span><span class="p">:</span> <span class="s">&#39;Wecken</span><span class="nv"> </span><span class="s">um&#39;</span>
+    <span class="nt">has_time</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">true</span>
+    <span class="nt">has_date</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">false</span>
+    <span class="nt">initial</span><span class="p">:</span> <span class="s">&#39;06:45&#39;</span>
+</pre></div>
+</div>
+<p>The yaml-configuration for the automation looks like this:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="p p-Indicator">-</span> <span class="nt">id</span><span class="p">:</span> <span class="s">&#39;1607003477556&#39;</span>
+  <span class="nt">alias</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">Lukas Wecker</span>
+  <span class="nt">description</span><span class="p">:</span> <span class="s">&#39;&#39;</span>
+  <span class="nt">trigger</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">platform</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">template</span>
+    <span class="nt">value_template</span><span class="p">:</span> <span class="s">&#39;{{</span><span class="nv"> </span><span class="s">states(&quot;sensor.time&quot;)</span><span class="nv"> </span><span class="s">==</span><span class="nv"> </span><span class="s">(states.input_datetime.wakeup_time_lukas.attributes.timestamp</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">int</span><span class="nv"> </span><span class="s">|</span><span class="nv"> </span><span class="s">timestamp_custom(&quot;%H:%M&quot;,</span><span class="nv"> </span><span class="s">False))</span><span class="nv"> </span><span class="s">}}&#39;</span>
+  <span class="nt">condition</span><span class="p">:</span> <span class="p p-Indicator">[]</span>
+  <span class="nt">action</span><span class="p">:</span>
+  <span class="p p-Indicator">-</span> <span class="nt">service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">light.turn_on</span>
+    <span class="nt">data</span><span class="p">:</span>
+      <span class="nt">brightness</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">255</span>
+      <span class="nt">color_temp</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">250</span>
+      <span class="nt">transition</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">1200</span>
+    <span class="nt">target</span><span class="p">:</span>
+      <span class="nt">entity_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">light.lukas_licht</span>
+  <span class="p p-Indicator">-</span> <span class="nt">service</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">climate.set_temperature</span>
+    <span class="nt">data</span><span class="p">:</span>
+      <span class="nt">temperature</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">18</span>
+    <span class="nt">entity_id</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">climate.eq3_schlafzimmer_lukas</span>
+  <span class="nt">mode</span><span class="p">:</span> <span class="l l-Scalar l-Scalar-Plain">single</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2021, Lukas Schüttler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/smarthome/lights.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

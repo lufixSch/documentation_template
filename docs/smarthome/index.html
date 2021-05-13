@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Smarthome &#8212; Home</title>
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/colors.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/code.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/sidebar.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lights" href="lights.html" />
+    <link rel="prev" title="Welcome!" href="../index.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  <div class="document">
+    
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="../index.html">Lukas GitHub</a></h1>
+
+
+
+
+
+
+
+
+
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script><h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Smarthome</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/index.html">Guides</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../templates/index.html">Templates</a></li>
+</ul>
+
+
+  <h3><a href="../index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Smarthome</a><ul>
+<li><a class="reference internal" href="#hardware">Hardware</a><ul>
+<li><a class="reference internal" href="#boot-raspberry-pi-from-ssd">Boot Raspberry Pi from SSD</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#software">Software</a><ul>
+<li><a class="reference internal" href="#homeassistant">Homeassistant</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#projects">Projects</a></li>
+</ul>
+</li>
+</ul>
+<h3>Projects</h3>
+
+<ul class="want-points">
+  
+  <li class="toctree-l2"><a href="lights.html">Lights</a></li>
+  
+  <li class="toctree-l2"><a href="desk.html">Desk</a></li>
+  
+  <li class="toctree-l2"><a href="heating.html">Heating</a></li>
+  
+  <li class="toctree-l2"><a href="audiosystem.html">Multi-Room Audiosystem</a></li>
+  
+</ul>
+        </div>
+      </div>
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="smarthome">
+<h1>Smarthome<a class="headerlink" href="#smarthome" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="hardware">
+<h2>Hardware<a class="headerlink" href="#hardware" title="Permalink to this headline">¶</a></h2>
+<p>My whole smarthome is based on a <a class="reference external" href="https://www.raspberrypi.org/products/raspberry-pi-4-model-b/">Raspberry Pi 4 Model B</a> with Raspbian. The operating system is installed on a <a class="reference external" href="https://www.amazon.de/gp/product/B07CXC32T2/ref=ppx_yo_dt_b_asin_title_o02_s01?ie=UTF8&amp;psc=1">Transcendent M.2 SSD</a> in a Case from <a class="reference external" href="https://www.amazon.de/gp/product/B07NCMHG5H/ref=ppx_yo_dt_b_asin_title_o09_s00?ie=UTF8&amp;psc=1">ICY BOX</a>. I tried different SSD’s before but none of the worked for me.
+For the Raspberry Pi enclosure I decided to go for a passively cooled case from <a class="reference external" href="https://buyzero.de/products/flirc-gehause-fur-raspberry-pi-4?_pos=2&amp;_sid=bf015e3c3&amp;_ss=r">FLIRC</a>. In everyday use, this leads to a CPU temperature of 40 to 45°C.</p>
+<div class="section" id="boot-raspberry-pi-from-ssd">
+<h3>Boot Raspberry Pi from SSD<a class="headerlink" href="#boot-raspberry-pi-from-ssd" title="Permalink to this headline">¶</a></h3>
+<p>With a newer model of the Raspberry Pi 4 Model B booting from an SSD should be as easy as installing the image on the SSD instead of an SD card and starting the Raspberry with only the SSD plugged into one of the USB Ports.</p>
+<p>If this isn’t working for you, you can find an alternative guide here: <a class="reference external" href="https://lufixsch.github.io/guides/Raspberry%20Pi/Raspberry%20boot%20from%20SSD">https://lufixsch.github.io/guides/Raspberry%20Pi/Raspberry%20boot%20from%20SSD</a></p>
+</div>
+</div>
+<div class="section" id="software">
+<h2>Software<a class="headerlink" href="#software" title="Permalink to this headline">¶</a></h2>
+<p>For my smarthome I’m using <a class="reference external" href="https://www.docker.com">Docker</a> to isolate the different tools from each other. Docker is controlled and monitored with <a class="reference external" href="https://www.portainer.io">Portainer</a>.</p>
+<p>Hass.io and most of the other container for IoT are installed via the <a class="reference external" href="https://github.com/SensorsIot/IOTstack">IOTstack</a>. Im using the folowing tools:</p>
+<ul class="simple">
+<li><p>Grafana</p></li>
+<li><p>InfluxDB</p></li>
+<li><p>Mosquitto</p></li>
+<li><p>Node-Red</p></li>
+<li><p>Zigbee2Mqtt</p></li>
+</ul>
+<p>To use my Raspberry Pi also as a NAS Open Media Vault ist installed too. It’s the only tool installed directly on the device without Docker.</p>
+<p>Because I don’t want to remember every port or adress to the web-interfaces of the different tools so I created a small landingpage hosted with a NGINX server. You can finde it here: <a class="reference external" href="https://github.com/lufixSch/smarthome-landingpage">https://github.com/lufixSch/smarthome-landingpage</a></p>
+<div class="section" id="homeassistant">
+<h3>Homeassistant<a class="headerlink" href="#homeassistant" title="Permalink to this headline">¶</a></h3>
+<p>The Heart of my Smarthome is the Hass.io installation from <a class="reference external" href="https://github.com/SensorsIot/IOTstack">IOTstack</a>. My whole configuration can be found here: <a class="reference external" href="404">404</a>.</p>
+</div>
+</div>
+<div class="section" id="projects">
+<h2>Projects<a class="headerlink" href="#projects" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound" id="projects-toc">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="lights.html">Lights</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="lights.html#ikea-tadfri">IKEA TÅDFRI</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lights.html#diy-lights">DIY lights</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lights.html#light-alarm">Light alarm</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="heating.html">Heating</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="heating.html#radiator-thermostat">Radiator thermostat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heating.html#temperature-sensor">Temperature sensor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="heating.html#configuration">Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="desk.html">Desk</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="desk.html#led-stripe">LED stripe</a></li>
+<li class="toctree-l2"><a class="reference internal" href="desk.html#chair-sensor">Chair sensor</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="audiosystem.html">Multi-Room Audiosystem</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+    <div class="clearer"></div>
+  </div>
+    <div class="footer">
+      &copy;2021, Lukas Schüttler.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.5.4</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="../_sources/smarthome/index.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
