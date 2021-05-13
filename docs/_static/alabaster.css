@@ -38,7 +38,7 @@ hr {
 
 div.body {
     background-color: var(--background);
-    color: var(--body_text);
+    color: var(--text-shade);
     padding: 0 30px 0 30px;
 }
 
@@ -50,12 +50,12 @@ div.footer {
     width: 90%;
     margin: 20px auto 30px auto;
     font-size: 14px;
-    color: var(--footer_text);
+    color: var(--text-shade);
     text-align: right;
 }
 
 div.footer a {
-    color: var(--footer_text);
+    color: var(--text-shade);
 }
 
 p.caption {
@@ -70,13 +70,13 @@ div.relations {
 
 
 div.sphinxsidebar a {
-    color: var(--gray_1);
+    color: var(--text-shade);
     text-decoration: none;
-    border-bottom: 1px dotted var(--sidebar_link);
+    border-bottom: 1px dotted var(--text-shade);
 }
 
 div.sphinxsidebar a:hover {
-    border-bottom: 1px solid var(--sidebar_link);
+    border-bottom: 1px solid var(--text-shade);
 }
 
 div.sphinxsidebarwrapper {
@@ -108,7 +108,7 @@ div.sphinxsidebarwrapper p.blurb {
 div.sphinxsidebar h3,
 div.sphinxsidebar h4 {
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-    color: var(--gray_1);
+    color: var(--text-shade);
     font-size: 24px;
     font-weight: normal;
     margin: 0 0 5px 0;
@@ -120,7 +120,7 @@ div.sphinxsidebar h4 {
 }
 
 div.sphinxsidebar h3 a {
-    color: var(--gray_1);
+    color: var(--text-shade);
 }
 
 div.sphinxsidebar p.logo a,
@@ -131,7 +131,7 @@ div.sphinxsidebar h3 a:hover {
 }
 
 div.sphinxsidebar p {
-    color: var(--sidebar_text);
+    color: var(--text-shade);
     margin: 10px 0;
 }
 
@@ -150,7 +150,7 @@ div.sphinxsidebar ul li.toctree-l2 > a {
 }
 
 div.sphinxsidebar input {
-    border: 1px solid var(--search_button);
+    border: 1px solid var(--background-shade);
     font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     font-size: 1em;
 }
@@ -158,8 +158,8 @@ div.sphinxsidebar input {
 div.sphinxsidebar hr {
     border: none;
     height: 1px;
-    color: var(--gray_3);
-    background: var(--gray_3);
+    color: var(--background-shade);
+    background: var(--background-shade);
 
     text-align: left;
     margin-left: 0;
@@ -182,12 +182,12 @@ div.sphinxsidebar h3.donation {
 /* -- body styles ----------------------------------------------------------- */
 
 a {
-    color: var(--link);
+    color: var(--text-primary);
     text-decoration: underline;
 }
 
 a:hover {
-    color: var(--link_hover);
+    color: var(--text-primary-shade);
     text-decoration: underline;
 }
 
@@ -211,14 +211,14 @@ div.body h5 { font-size: 100%; }
 div.body h6 { font-size: 100%; }
 
 a.headerlink {
-    color: var(--anchor);
+    color: var(--background-shade);
     padding: 0 4px;
     text-decoration: none;
 }
 
 a.headerlink:hover {
-    color: var(--gray_1);
-    background: var(--anchor_hover_bg);
+    color: var(--text-shade);
+    background: var(--background-accent);
 }
 
 div.body p, div.body dd, div.body li {
@@ -228,13 +228,13 @@ div.body p, div.body dd, div.body li {
 div.admonition {
     margin: 20px 0px;
     padding: 10px 30px;
-    background-color: var(--gray_2);
+    background-color: var(--background);
     border: 1px solid #CCC;
 }
 
 div.admonition tt.xref, div.admonition code.xref, div.admonition a tt {
     background-color: var(--background);
-    border-bottom: 1px solid var(--admonition_xref_border);
+    border-bottom: 1px solid var(--background-shade);
 }
 
 div.admonition p.admonition-title {
@@ -251,66 +251,66 @@ div.admonition p.last {
 }
 
 div.highlight {
-    background-color: var(--gray_3);
+    background-color: var(--background-shade);
 }
 
 dt:target, .highlight {
-    background: var(--highlight_bg);
+    background: var(--background-accent-shade);
 }
 
 div.warning {
-    background-color: var(--pink_1);
-    border: 1px solid var(--pink_2);
+    background-color: #FCC;
+    border: 1px solid #FAA;
 }
 
 div.danger {
-    background-color: var(--pink_1);
-    border: 1px solid var(--pink_2);
-    -moz-box-shadow: 2px 2px 4px var(--pink_3);
-    -webkit-box-shadow: 2px 2px 4px var(--pink_3);
-    box-shadow: 2px 2px 4px var(--pink_3);
+    background-color: #FCC;
+    border: 1px solid #FAA;
+    -moz-box-shadow: 2px 2px 4px #D52C2C;
+    -webkit-box-shadow: 2px 2px 4px #D52C2C;
+    box-shadow: 2px 2px 4px #D52C2C;
 }
 
 div.error {
-    background-color: var(--pink_1);
-    border: 1px solid var(--pink_2);
-    -moz-box-shadow: 2px 2px 4px var(--pink_3);
-    -webkit-box-shadow: 2px 2px 4px var(--pink_3);
-    box-shadow: 2px 2px 4px var(--pink_3);
+    background-color: #FCC;
+    border: 1px solid #FAA;
+    -moz-box-shadow: 2px 2px 4px #D52C2C;
+    -webkit-box-shadow: 2px 2px 4px #D52C2C;
+    box-shadow: 2px 2px 4px #D52C2C;
 }
 
 div.caution {
-    background-color: var(--pink_1);
-    border: 1px solid var(--pink_2);
+    background-color: #FCC;
+    border: 1px solid #FAA;
 }
 
 div.attention {
-    background-color: var(--pink_1);
-    border: 1px solid var(--pink_2);
+    background-color: #FCC;
+    border: 1px solid #FAA;
 }
 
 div.important {
-    background-color: var(--gray_2);
+    background-color: var(--background);
     border: 1px solid #CCC;
 }
 
 div.note {
-    background-color: var(--gray_2);
+    background-color: var(--background);
     border: 1px solid #CCC;
 }
 
 div.tip {
-    background-color: var(--gray_2);
+    background-color: var(--background);
     border: 1px solid #CCC;
 }
 
 div.hint {
-    background-color: var(--gray_2);
+    background-color: var(--background);
     border: 1px solid #CCC;
 }
 
 div.seealso {
-    background-color: var(--gray_2);
+    background-color: var(--background);
     border: 1px solid #CCC;
 }
 
@@ -332,7 +332,7 @@ pre, tt, code {
 }
 
 .hll {
-    background-color: var(--code_highlight);
+    background-color: var(--text-primary-shade);
     margin: 0 -12px;
     padding: 0 12px;
     display: block;
@@ -350,20 +350,20 @@ tt.descname, code.descname {
 }
 
 img.screenshot {
-    -moz-box-shadow: 2px 2px 4px var(--gray_2);
-    -webkit-box-shadow: 2px 2px 4px var(--gray_2);
-    box-shadow: 2px 2px 4px var(--gray_2);
+    -moz-box-shadow: 2px 2px 4px var(--background);
+    -webkit-box-shadow: 2px 2px 4px var(--background);
+    box-shadow: 2px 2px 4px var(--background);
 }
 
 table.docutils {
-    border: 1px solid var(--table_border);
-    -moz-box-shadow: 2px 2px 4px var(--gray_2);
-    -webkit-box-shadow: 2px 2px 4px var(--gray_2);
-    box-shadow: 2px 2px 4px var(--gray_2);
+    border: 1px solid var(--border);
+    -moz-box-shadow: 2px 2px 4px var(--background);
+    -webkit-box-shadow: 2px 2px 4px var(--background);
+    box-shadow: 2px 2px 4px var(--background);
 }
 
 table.docutils td, table.docutils th {
-    border: 1px solid var(--table_border);
+    border: 1px solid var(--border);
     padding: 0.25em 0.7em;
 }
 
@@ -378,7 +378,7 @@ table.footnote {
     margin: 15px 0;
     width: 100%;
     border: 1px solid var(--border);
-    background: var(--footnote_bg);
+    background: var(--background-shade);
     font-size: 0.9em;
 }
 
@@ -439,14 +439,14 @@ ul, ol {
 }
 
 pre {
-    background: var(--code_bg);
+    background: var(--background-accent-shade);
     padding: 7px 30px;
     margin: 15px 0px;
     line-height: 1.3em;
 }
 
 div.viewcode-block:target {
-    background: var(--viewcode_target_bg);
+    background: var(--background-accent-shade);
 }
 
 dl pre, blockquote pre, li pre {
@@ -455,19 +455,19 @@ dl pre, blockquote pre, li pre {
 }
 
 tt, code {
-    background-color: var(--code_bg);
-    color: var(--code_text);
+    background-color: var(--background-accent-shade);
+    color: var(--code);
     /* padding: 1px 2px; */
 }
 
 tt.xref, code.xref, a tt {
-    background-color: var(--xref_bg);
-    border-bottom: 1px solid var(--xref_border);
+    background-color: var(--background-shade);
+    border-bottom: 1px solid var(--background);
 }
 
 a.reference {
     text-decoration: none;
-    border-bottom: 1px dotted var(--link);
+    border-bottom: 1px dotted var(--text-primary);
 }
 
 /* Don't put an underline on images */
@@ -476,22 +476,22 @@ a.image-reference, a.image-reference:hover {
 }
 
 a.reference:hover {
-    border-bottom: 1px solid var(--link_hover);
+    border-bottom: 1px solid var(--text-primary-shade);
 }
 
 a.footnote-reference {
     text-decoration: none;
     font-size: 0.7em;
     vertical-align: top;
-    border-bottom: 1px dotted var(--link);
+    border-bottom: 1px dotted var(--text-primary);
 }
 
 a.footnote-reference:hover {
-    border-bottom: 1px solid var(--link_hover);
+    border-bottom: 1px solid var(--text-primary-shade);
 }
 
 a:hover tt, a:hover code {
-    background: var(--code_hover);
+    background: var(--text-shade);
 }
 
 
@@ -573,8 +573,8 @@ a:hover tt, a:hover code {
         width: 102.5%;
         margin: -20px -30px 20px -30px;
         padding: 10px 20px;
-        background: var(--narrow_sidebar_bg);
-        color: var(--narrow_sidebar_fg);
+        background: var(--background);
+        color: var(--background-shade);
     }
 
     div.sphinxsidebar h3, div.sphinxsidebar h4, div.sphinxsidebar p,
@@ -583,7 +583,7 @@ a:hover tt, a:hover code {
     }
 
     div.sphinxsidebar a {
-        color: var(--sidebar_link);
+        color: var(--text-shade);
     }
 
     div.sphinxsidebar p.logo {
@@ -669,12 +669,12 @@ table.docutils.citation, table.docutils.citation td, table.docutils.citation th 
 }
 
 .related.top {
-    border-bottom: 1px solid var(--gray_2);
+    border-bottom: 1px solid var(--background);
     margin-bottom: 20px;
 }
 
 .related.bottom {
-    border-top: 1px solid var(--gray_2);
+    border-top: 1px solid var(--background);
 }
 
 .related ul {

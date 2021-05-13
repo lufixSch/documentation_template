@@ -7,9 +7,11 @@ div.sphinxsidebarwrapper {
   overflow-y: auto;
 
   /* distinguish sidebar from document body */
-  border: none;
-  border-radius: 8px;
-  background-color: var(--sidebar_bg);
+  border-style: var(--border);
+  border-width: 1px;
+  border-color: var(--background-accent-shade);
+  border-radius: var(--border-radius);
+  background-color: var(--background-accent);
 }
 
 /* see big rant in conf.py. TL;DR: sidebar overlaps into body if you
@@ -23,18 +25,20 @@ div.sphinxsidebar #searchbox {
 }
 
 div.sphinxsidebar #searchbox form.search {
-  border-radius: 8px;
+  border-radius: var(--border-radius);
 }
 
 div.sphinxsidebar #searchbox input {
   background-color: var(--background);
   color: var(--text);
-  border: none;
+  border-style: var(--border);
+  border-width: 1px;
+  border-color: var(--background-shade);
 }
 
 div.sphinxsidebar #searchbox input[type='submit']:hover,
 div.sphinxsidebar #searchbox input[type='submit']:focus {
-  background-color: var(--gray_3);
+  background-color: var(--background-shade);
 }
 
 div.sphinxsidebar a,
@@ -42,5 +46,5 @@ div.sphinxsidebar h3,
 div.sphinxsidebar h4,
 div.sphinxsidebar p,
 div.sphinxsidebar h3 a {
-  color: var(--gray_1);
+  color: var(--text-shade);
 }

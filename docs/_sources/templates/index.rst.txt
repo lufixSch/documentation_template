@@ -1,8 +1,0 @@
-Templates
-===========
-A list of different templates for example for Latex.
-
-.. toctree::
-   :maxdepth: 1
-
-   latex_protocol

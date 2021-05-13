@@ -1,3 +1,0 @@
-**Repository:** `<https://github.com/lufixSch/protokoll_vorlage>`_
-
-.. mdinclude:: ./latex_protocol/README.md

@@ -6,15 +6,21 @@
 Welcome!
 =========
 
-This Website is the Documentation of everything I do on GitHub. You will find some templates for example for a LaTex document, a set of short quides for different technical problems and a detailed documentation of my smarthome.
+Some test text with a `link <www.lufixSch.github.io>`_
+
+.. code-block:: python
+
+   variable = "some string"
+   counter = 42
+
+   def somFunction(param):
+      # do something
+
+
 
 Index
 ------
 
 .. toctree::
    :maxdepth: 1
-   :glob:
 
-   smarthome/index
-   guides/index
-   templates/index

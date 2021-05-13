@@ -1,28 +1,30 @@
 div.highlight {
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   overflow: hidden;
 }
 
 .highlight .p,
 .highlight .l,
-.highlight .no {
-  color: var(--text);
+.highlight .no,
+.highlight .n,
+.highlight .nf {
+  color: var(--code);
 }
 
 .highlight .nt,
 .highlight .nv,
 .highlight .nb {
-  color: var(--code_nt);
+  color: var(--code-primary);
 }
 
 .highlight .s {
-  color: var(--code_s);
+  color: var(--code-secondary);
 }
 
 .highlight .se {
-  color: var(--code_se);
+  color: var(--code-secondary);
 }
 
 .highlight .c1 {
-  color: var(--link_hover);
+  color: var(--text-primary-shade);
 }
