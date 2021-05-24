@@ -13,7 +13,9 @@ div.highlight {
 
 .highlight .nt,
 .highlight .nv,
-.highlight .nb {
+.highlight .nb,
+.highlight .gh,
+.highlight .k {
   color: var(--code-primary);
 }
 
